@@ -1,59 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace MqttServerConsole
+
+namespace ConsoleServer
 {
     public class Program
-
     {
-
-        static MqttClient mqttClient = new MqttClient("broker.hivemq.com");
         public static void Main(string[] args)
         {
+            MqttClient client = new MqttClient("broker.hivemq.com");
+            string uniqueserverid = Guid.NewGuid().ToString();
+            client.Connect(uniqueserverid);
+            try
+            {
+                Console.WriteLine("Enter the Topic name to publish");
+                string topic = Console.ReadLine();
 
-            string clientid = "testclientpublish";
+                bool repeat = true;
 
-            mqttClient.Connect(clientid);
-            Console.WriteLine("Connected to MQTT Broker:");
-
-
-            Console.WriteLine("Enter the topics name to publish message:");
-            string topics = Console.ReadLine();
-
-            while (true)
-
-                try
+                while (repeat)
                 {
-
-                    Console.WriteLine("Enter the message to publish:");
-                    string mesage = Console.ReadLine();
-
-                    mqttClient.Publish(topics, Encoding.ASCII.GetBytes(mesage));
-                    Console.WriteLine("publish successful");
-                    // mqttClient.MqttMsgPublishReceived += MqttClient_MqttMsgPublishReceived;
-                    Console.ReadKey();
-
+                    Console.WriteLine("Write the msg or 'x' to close :");
+                    string msg = Console.ReadLine();
+                    if (msg.ToLower().Equals("x"))
+                    {
+                        repeat = false;
+                    }
+                    client.Publish(topic, Encoding.ASCII.GetBytes(msg));
                 }
+                Console.WriteLine("Publish stopped. Please exit the application");
 
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error :     " + ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+
+
+
         }
-
-        private static void MqttClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-        {
-            byte[] response = e.Message;
-
-            //Console.WriteLine(Encoding.ASCII.GetBytes(response));
-        }
-
-
     }
 }

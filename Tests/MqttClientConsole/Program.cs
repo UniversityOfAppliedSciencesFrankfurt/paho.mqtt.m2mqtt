@@ -1,58 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace MqttClientConsole
+
+namespace ConsoleClient
 {
     public class Program
     {
-
-
-        static MqttClient mqttClient = new MqttClient("broker.hivemq.com");
-
         public static void Main(string[] args)
-
         {
-            try
-            {
-                string clientid = "testclientsubscribe";
 
-                mqttClient.Connect(clientid);
-                Console.WriteLine("Connected to MQTT Broker:");
-                Console.WriteLine("Enter the topic name to subscribe:");
-                string topic = Console.ReadLine();
+            MqttClient client = new MqttClient("broker.hivemq.com");
+            string uniqueclientid = Guid.NewGuid().ToString();
+            client.Connect(uniqueclientid);
 
-                string[] topics = new string[] { topic };
+            Console.WriteLine("Enter  topic name to subscribe");
+            string[] topic = { Console.ReadLine() };
 
-                byte[] qoslevels = new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
 
-                mqttClient.Subscribe(topics, qoslevels);
-                mqttClient.MqttMsgPublishReceived += MqttClient_MqttMsgPublishReceived;
+            // string[] TopicArray = new string[] { topic };
+            byte[] qoslevel = new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
+            client.Subscribe(topic, qoslevel);
 
-                Console.ReadKey();
+            client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
 
-            }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error :     " + ex.ToString());
-            }
+            Console.ReadKey();
+
         }
 
-        private static void MqttClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        private static void Client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            byte[] response = e.Message;
-
-            Console.WriteLine(Encoding.ASCII.GetString(response));
+            byte[] respose = e.Message;
+            string topicname = e.Topic;
+            string byteToString = Encoding.ASCII.GetString(respose);
+            Console.WriteLine("Topic name : " + topicname + "  Data :" + byteToString);
         }
+
 
     }
-
 }
-
