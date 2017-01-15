@@ -13,6 +13,7 @@ namespace MqttServerConsole
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Client that Publishes:");
             MqttClient client = new MqttClient("broker.hivemq.com");
             string uniqueserverid = Guid.NewGuid().ToString();
             client.Connect(uniqueserverid);

@@ -12,7 +12,7 @@ namespace MqttClientConsole
     {
         public static void Main(string[] args)
         {
-
+            Console.WriteLine("Client that Subscribes:");
             MqttClient client = new MqttClient("broker.hivemq.com");
             string uniqueclientid = Guid.NewGuid().ToString();
             client.Connect(uniqueclientid);

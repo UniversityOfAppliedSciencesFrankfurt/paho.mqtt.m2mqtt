@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Test_IotApi
+namespace Daenet.Iot
 {
-    public class Program
+    public class IotApi
+    
     {
         public static void Main(string[] args)
         {
+
         }
     }
 }
