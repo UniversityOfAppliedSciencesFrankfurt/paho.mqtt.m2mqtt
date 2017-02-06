@@ -19,6 +19,7 @@ namespace Daenet.Iot
         /// <returns></returns>
         Task Open(Dictionary<string, object> args);
 
+
         /// <summary>
         /// Gets the name of transport library.
         /// </summary>
