@@ -12,10 +12,13 @@ namespace ConsoleServer
     public class Program
     {
         public static void Main(string[] args)
-        {
+
+        {   // already existing mqtt broker "broker.hivemq.com" is used for testing
             MqttClient client = new MqttClient("broker.hivemq.com");
+            // creating universial uniqe code for client identity
             string uniqueserverid = Guid.NewGuid().ToString();
 
+            // method connect() with client id as a parameter- to connect to above assigned broker.
             client.Connect(uniqueserverid);
             try
             {
@@ -32,6 +35,8 @@ namespace ConsoleServer
                     {
                         repeat = false;
                     }
+
+                    // mqtt method publish() to publish a message as bytes
                     client.Publish(topic, Encoding.ASCII.GetBytes(msg));
                 }
                 Console.WriteLine("Publish stopped. Please exit the application");
