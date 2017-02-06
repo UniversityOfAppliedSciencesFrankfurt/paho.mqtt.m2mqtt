@@ -130,6 +130,7 @@ namespace Mqtt_Core.Messages
         // message type
         protected byte type;
         // duplicate delivery
+
         protected bool dupFlag;
         // quality of service level
         protected byte qosLevel;
