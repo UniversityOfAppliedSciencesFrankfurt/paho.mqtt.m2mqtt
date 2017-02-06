@@ -18,7 +18,8 @@ namespace Daenet.Iot
 
             dict.Add("mqttConnectionString", conString);
 
-            obj.Open(dict);                    
+            obj.Open(dict);       
+                         
                
             Console.WriteLine("Enter topic to subscribe");
             string subsTopic = Console.ReadLine();
