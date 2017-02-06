@@ -35,6 +35,7 @@ namespace Daenet.Iot
             public Task OnMessage(Func<object, bool> onReceiveMsg, CancellationToken cancelationToken, Dictionary<string, object> args = null)
             {
                 throw new NotImplementedException();
+
             }
 
             public Task Open(Dictionary<string, object> args)
