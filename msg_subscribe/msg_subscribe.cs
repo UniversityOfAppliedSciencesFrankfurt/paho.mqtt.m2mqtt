@@ -6,7 +6,8 @@ namespace Daenet.Iot
 
     public class msg_subscribe
     {
-        static string conString = "broker.hivemq.com";        
+        static string conString = "broker.hivemq.com";   
+             
         string clientId = new Guid().ToString(); 
         
                
@@ -14,7 +15,9 @@ namespace Daenet.Iot
         {            
             Iot_Mqtt obj = new Iot_Mqtt();
             Dictionary<string, object> dict = new Dictionary<string, object>();
+
             dict.Add("mqttConnectionString", conString);
+
             obj.Open(dict);                    
                
             Console.WriteLine("Enter topic to subscribe");
@@ -22,7 +25,8 @@ namespace Daenet.Iot
 
             Dictionary<string, object> dict_topic = new Dictionary<string, object>();
 
-            dict_topic.Add("subscribeTopic", subsTopic);            
+            dict_topic.Add("subscribeTopic", subsTopic);  
+                      
             obj.ReceiveAsync(null, null, 60000,dict_topic);
             
                        
