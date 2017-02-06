@@ -87,6 +87,7 @@ namespace Daenet.Iot
 
                     List<string> subTopicList = new List<string>();
                     List<byte> qosList = new List<byte>();
+
                     foreach (var item in args)
                     {
                         if (item.Key.Contains("subscribeTopic"))
