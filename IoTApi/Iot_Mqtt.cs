@@ -46,6 +46,7 @@ namespace Daenet.Iot
                     
                     _mqttClient = new MqttClient(connectionToMqtt);
                     _uniqueDeviceId = Guid.NewGuid().ToString();
+
                     _mqttClient.Connect(_uniqueDeviceId);
 
                                        
