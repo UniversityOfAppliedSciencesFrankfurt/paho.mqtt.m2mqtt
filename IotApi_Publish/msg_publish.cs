@@ -35,6 +35,7 @@ namespace Daenet.Iot
                         mlist.Add(msg);
                         IList<object> lst = mlist;
                         obj.SendAsync(lst, null, null, dtopic);
+
                     Console.ReadKey();
 
                     }
