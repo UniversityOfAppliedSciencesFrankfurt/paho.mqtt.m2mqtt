@@ -20,6 +20,7 @@ namespace Mqtt_Core.Exceptions
         }
 
         // error code
+
         private MqttClientErrorCode errorCode;
 
         /// <summary>
