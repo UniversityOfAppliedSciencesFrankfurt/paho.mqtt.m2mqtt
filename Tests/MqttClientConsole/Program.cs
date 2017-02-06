@@ -19,7 +19,8 @@ namespace ConsoleClient
             client.Connect(uniqueclientid);
 
             Console.WriteLine("Enter  topic name to subscribe");
-            string[] topic = { Console.ReadLine() };           
+            string[] topic = { Console.ReadLine() }; 
+                      
             byte[] qoslevel =  new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
             client.Subscribe(topic, qoslevel);
 
