@@ -16,7 +16,7 @@ namespace Daenet.Iot
         {
 
             #region Private Section
-
+            // Mqtt client is defined as type MqttClient
             private MqttClient _mqttClient;
             private string _uniqueDeviceId;
 
@@ -37,7 +37,9 @@ namespace Daenet.Iot
                 throw new NotImplementedException();
 
             }
-
+            // method to establish a connection between client and broker.
+            // connection request is sent from client to broker, with the help of connect() 
+            // method of MQTT library
             public Task Open(Dictionary<string, object> args)
 
             {
@@ -56,6 +58,10 @@ namespace Daenet.Iot
 
             }
 
+            // event listener to subcribe a message
+            // after the published event is fired from broker, any subcriber- listening to this event
+            //can receive that specific topic afterwards.
+            // a received message will be decoded to original string type after it is received.
             private void _mqttClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
             {
 
@@ -67,7 +73,10 @@ namespace Daenet.Iot
             {
                 throw new NotImplementedException();
             }
-
+            
+            // IoTApi method to receive a topic.
+            // It uses a subcribe() method of MQTT library to perform that receiving task.
+            // topic list as string type parameterand QoS as byte
             public Task ReceiveAsync(Func<object, bool> onSuccess = null, Func<Exception, bool> onError = null,
                 int timeout = 60000, Dictionary<string, object> args = null)
             {
@@ -86,7 +95,11 @@ namespace Daenet.Iot
                             qosList.Add(MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE);
                         }
                     }
+
+                    // MQTT method invoked to perform receiving a topic with IoTApi
                     _mqttClient.Subscribe(subTopicList.ToArray(), qosList.ToArray());
+
+                    // event listner
 
                     _mqttClient.MqttMsgPublishReceived += _mqttClient_MqttMsgPublishReceived;
                     

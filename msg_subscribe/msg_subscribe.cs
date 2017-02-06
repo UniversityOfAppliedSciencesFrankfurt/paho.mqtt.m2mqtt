@@ -6,8 +6,8 @@ namespace Daenet.Iot
 
     public class msg_subscribe
     {
-        static string conString = "broker.hivemq.com";   
-             
+        static string conString = "broker.hivemq.com";
+
         string clientId = new Guid().ToString(); 
         
                

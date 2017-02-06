@@ -13,17 +13,22 @@ namespace ConsoleClient
         {   
         public static void Main(string[] args)
         {
-
+            // already existing mqtt broker "broker.hivemq.com" is used for testing
             MqttClient client = new MqttClient("broker.hivemq.com");
+            // creating universial uniqe code for client identity
             string uniqueclientid = Guid.NewGuid().ToString();
+            // method to establish a connection- connection reqest is send from client to broker
             client.Connect(uniqueclientid);
 
             Console.WriteLine("Enter  topic name to subscribe");
             string[] topic = { Console.ReadLine() }; 
                       
             byte[] qoslevel =  new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
-            client.Subscribe(topic, qoslevel);
 
+            // message is requested with a broker specifying a topic name and QoS  
+            client.Subscribe(topic, qoslevel);
+            
+            //even is listened for every published event for that topic
             client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
 
             Console.ReadKey();

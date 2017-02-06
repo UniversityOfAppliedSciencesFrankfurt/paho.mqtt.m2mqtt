@@ -6,12 +6,16 @@ namespace Daenet.Iot
 {
 
     public class msg_publish
-    {            
-            static string conString = "broker.hivemq.com";
-            string clientid = new Guid().ToString();
+    {
+        // already existing mqtt broker "broker.hivemq.com" is used for testing    
+        static string conString = "broker.hivemq.com";
+        // creating universial uniqe code for client identity
+        string clientid = new Guid().ToString();
 
             public static void Main(string[] args)
             {
+
+               
                 Iot_Mqtt obj = new Iot_Mqtt();
                 Dictionary<string, object> dict = new Dictionary<string, object>();
                 dict.Add("mqttConnectionString", conString);
