@@ -9,6 +9,7 @@ namespace Daenet.Iot
     {            
             static string conString = "broker.hivemq.com";
             string clientid = new Guid().ToString();
+
             public static void Main(string[] args)
             {
                 Iot_Mqtt obj = new Iot_Mqtt();
