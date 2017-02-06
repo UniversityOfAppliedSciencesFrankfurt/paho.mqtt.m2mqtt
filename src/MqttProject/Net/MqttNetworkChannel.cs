@@ -1,34 +1,11 @@
-﻿/*
-Copyright (c) 2013, 2014 Paolo Patierno
-
-All rights reserved. This program and the accompanying materials
-are made available under the terms of the Eclipse Public License v1.0
-and Eclipse Distribution License v1.0 which accompany this distribution. 
-
-The Eclipse Public License is available at 
-   http://www.eclipse.org/legal/epl-v10.html
-and the Eclipse Distribution License is available at 
-   http://www.eclipse.org/org/documents/edl-v10.php.
-
-Contributors:
-   Paolo Patierno - initial API and implementation and/or initial documentation
-*/
-
-#if SSL
-#if (MF_FRAMEWORK_VERSION_V4_2 || MF_FRAMEWORK_VERSION_V4_3)
-using Microsoft.SPOT.Net.Security;
-#else
-using System.Net.Security;
-using System.Security.Authentication;
-#endif
-#endif
+﻿
 using System.Net.Sockets;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Net.Security;
 
-namespace uPLibrary.Networking.M2Mqtt
+namespace Mqtt_Core
 {
     /// <summary>
     /// Channel to communicate over the network

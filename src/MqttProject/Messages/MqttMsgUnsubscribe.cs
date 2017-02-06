@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 using System.Collections;
 using System.Text;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
-using uPLibrary.Networking.M2Mqtt.Messages;
+using Mqtt_Core.Exceptions;
+using Mqtt_Core.Messages;
 
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Class for UNSUBSCRIBE message from client to broker

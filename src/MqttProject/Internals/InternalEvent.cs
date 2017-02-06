@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace uPLibrary.Networking.M2Mqtt.Internal
+namespace Mqtt_Core.Internal
 {
     /// <summary>
     /// Generic internal event for dispatching

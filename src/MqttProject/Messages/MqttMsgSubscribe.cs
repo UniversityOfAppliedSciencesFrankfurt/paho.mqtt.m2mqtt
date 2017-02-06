@@ -6,9 +6,9 @@ using System.Collections.Generic;
 #endif
 using System.Collections;
 using System.Text;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
+using Mqtt_Core.Exceptions;
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Class for SUBSCRIBE message from client to broker

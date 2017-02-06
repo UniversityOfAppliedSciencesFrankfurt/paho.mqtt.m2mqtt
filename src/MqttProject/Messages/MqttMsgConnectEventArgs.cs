@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.SPOT;
 #endif
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Event Args class for CONNECT message received from client

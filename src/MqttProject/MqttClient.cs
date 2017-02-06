@@ -1,18 +1,4 @@
-﻿/*
-Copyright (c) 2013, 2014 Paolo Patierno
-
-All rights reserved. This program and the accompanying materials
-are made available under the terms of the Eclipse Public License v1.0
-and Eclipse Distribution License v1.0 which accompany this distribution. 
-
-The Eclipse Public License is available at 
-   http://www.eclipse.org/legal/epl-v10.html
-and the Eclipse Distribution License is available at 
-   http://www.eclipse.org/org/documents/edl-v10.php.
-
-Contributors:
-   Paolo Patierno - initial API and implementation and/or initial documentation
-*/
+﻿
 
 using System;
 using System.Net;
@@ -22,11 +8,11 @@ using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 #endif
 using System.Threading;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
-using uPLibrary.Networking.M2Mqtt.Messages;
-using uPLibrary.Networking.M2Mqtt.Session;
-using uPLibrary.Networking.M2Mqtt.Utility;
-using uPLibrary.Networking.M2Mqtt.Internal;
+using Mqtt_Core.Exceptions;
+using Mqtt_Core.Messages;
+using Mqtt_Core.Session;
+using Mqtt_Core.Utility;
+using Mqtt_Core.Internal;
 // if .Net Micro Framework
 #if (MF_FRAMEWORK_VERSION_V4_2 || MF_FRAMEWORK_VERSION_V4_3)
 using Microsoft.SPOT;
@@ -35,7 +21,6 @@ using Microsoft.SPOT.Net.Security;
 #endif
 // else other frameworks (.Net, .Net Compact, Mono, Windows Phone) 
 #else
-using System.Collections.Generic;
 #if (SSL && !(WINDOWS_APP || WINDOWS_PHONE_APP))
 using System.Security.Authentication;
 using System.Net.Security;
@@ -49,12 +34,12 @@ using Windows.Networking.Sockets;
 using System.Collections;
 
 // alias needed due to Microsoft.SPOT.Trace in .Net Micro Framework
-// (it's ambiguos with  uPLibrary.Networking.M2Mqtt.Utility.Trace)
-using MqttUtility = uPLibrary.Networking.M2Mqtt.Utility;
+// (it's ambiguos with  Mqtt_Core.Utility.Trace)
+using MqttUtility = Mqtt_Core.Utility;
 using System.Net.Security;
 using System.Threading.Tasks;
 
-namespace uPLibrary.Networking.M2Mqtt
+namespace Mqtt_Core
 {
     /// <summary>
     /// MQTT Client
@@ -2595,6 +2580,26 @@ namespace uPLibrary.Networking.M2Mqtt
             // if 0 or max UInt16, it becomes 1 (first valid messageId)
             this.messageIdCounter = ((this.messageIdCounter % UInt16.MaxValue) != 0) ? (ushort)(this.messageIdCounter + 1) : (ushort)1;
             return this.messageIdCounter;
+        }
+
+        public byte Connect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public byte Connect(object com, object p1, object p2, bool v1, byte qOS_LEVEL_EXACTLY_ONCE, bool v2, string v3, string v4, bool v5, int v6)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Connect(string v1, object p1, object p2, bool v2, byte qOS_LEVEL_AT_LEAST_ONCE, bool v3, object p3, object p4, bool v4, ushort kEEP_ALIVE_PERIOD_DEFAULT, object pROTOCOL_VERSION_V3_1_1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Publish(string v, object p)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

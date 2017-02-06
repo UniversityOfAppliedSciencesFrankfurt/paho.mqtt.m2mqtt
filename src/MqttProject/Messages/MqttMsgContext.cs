@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Context for MQTT message

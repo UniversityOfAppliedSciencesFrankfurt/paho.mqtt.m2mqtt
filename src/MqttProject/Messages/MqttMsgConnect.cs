@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
+using Mqtt_Core.Exceptions;
 
 using System.Text;
 
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Class for CONNECT message from client to broker

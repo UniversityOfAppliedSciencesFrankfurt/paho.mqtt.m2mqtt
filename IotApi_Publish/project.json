@@ -5,11 +5,11 @@
   },
 
   "dependencies": {
+    "IoTApi": "1.0.0-*",
     "Microsoft.NETCore.App": {
         "type": "platform",
         "version": "1.0.1"
-    },
-    "MqttProject": "1.0.0-*"
+    }
   },
 
   "frameworks": {

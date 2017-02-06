@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Event Args class for unsubscribe request on topics

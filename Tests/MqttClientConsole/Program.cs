@@ -1,32 +1,29 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using uPLibrary.Networking.M2Mqtt;
-using uPLibrary.Networking.M2Mqtt.Messages;
+using Mqtt_Core;
+using Mqtt_Core.Messages;
 
 
-namespace MqttClientConsole
+namespace ConsoleClient
 {
     public class Program
-    {
+        {   
         public static void Main(string[] args)
         {
-            Console.WriteLine("Client that Subscribes:");
+
             MqttClient client = new MqttClient("broker.hivemq.com");
             string uniqueclientid = Guid.NewGuid().ToString();
             client.Connect(uniqueclientid);
 
             Console.WriteLine("Enter  topic name to subscribe");
-            string[] topic = { Console.ReadLine() };
-
-
-            // string[] TopicArray = new string[] { topic };
-            byte[] qoslevel = new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
+            string[] topic = { Console.ReadLine() };           
+            byte[] qoslevel =  new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE };
             client.Subscribe(topic, qoslevel);
 
             client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
-
 
             Console.ReadKey();
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using System.Diagnostics;
 
-namespace uPLibrary.Networking.M2Mqtt.Utility
+namespace Mqtt_Core.Utility
 {
     /// <summary>
     /// Tracing levels

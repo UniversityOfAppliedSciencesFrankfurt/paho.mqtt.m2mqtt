@@ -7,8 +7,8 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>a84a28e7-6a11-49eb-9b6f-980be6f18ca4</ProjectGuid>
-    <RootNamespace>Test_IotApi</RootNamespace>
+    <ProjectGuid>66d37324-0233-41b2-8f23-8e80664ceeda</ProjectGuid>
+    <RootNamespace>msg_subscribe</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

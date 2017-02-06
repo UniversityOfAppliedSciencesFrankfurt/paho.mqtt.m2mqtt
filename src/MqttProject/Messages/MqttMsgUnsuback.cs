@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using uPLibrary.Networking.M2Mqtt.Exceptions;
+using Mqtt_Core.Exceptions;
 
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Class for UNSUBACK message from broker to client

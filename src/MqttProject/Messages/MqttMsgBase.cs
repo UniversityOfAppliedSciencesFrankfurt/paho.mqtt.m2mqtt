@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 
-namespace uPLibrary.Networking.M2Mqtt.Messages
+namespace Mqtt_Core.Messages
 {
     /// <summary>
     /// Base class for all MQTT messages
@@ -122,6 +122,8 @@ namespace uPLibrary.Networking.M2Mqtt.Messages
             get { return this.messageId; }
             set { this.messageId = value; }
         }
+
+        public static ushort KEEP_ALIVE_PERIOD_DEFAULT { get; set; }
 
         #endregion
 

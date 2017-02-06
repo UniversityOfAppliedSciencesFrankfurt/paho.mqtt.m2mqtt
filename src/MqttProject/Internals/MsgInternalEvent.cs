@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using uPLibrary.Networking.M2Mqtt.Messages;
+using Mqtt_Core.Messages;
 
-namespace uPLibrary.Networking.M2Mqtt.Internal
+namespace Mqtt_Core.Internal
 {
     /// <summary>
     /// Internal event with a message

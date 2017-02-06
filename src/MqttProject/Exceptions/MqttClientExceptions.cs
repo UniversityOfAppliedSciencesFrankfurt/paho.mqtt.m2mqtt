@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace uPLibrary.Networking.M2Mqtt.Exceptions
+namespace Mqtt_Core.Exceptions
 {
     /// <summary>
     /// MQTT client exception
