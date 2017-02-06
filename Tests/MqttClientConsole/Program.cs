@@ -17,6 +17,7 @@ namespace ConsoleClient
             MqttClient client = new MqttClient("broker.hivemq.com");
             // creating universial uniqe code for client identity
             string uniqueclientid = Guid.NewGuid().ToString();
+
             // method to establish a connection- connection reqest is send from client to broker
             client.Connect(uniqueclientid);
 
