@@ -39,6 +39,7 @@ namespace Daenet.Iot
             }
 
             public Task Open(Dictionary<string, object> args)
+
             {
                 string connectionToMqtt = args.FirstOrDefault(x => x.Key.Contains("mqttConnectionString")).Value.ToString();
 
