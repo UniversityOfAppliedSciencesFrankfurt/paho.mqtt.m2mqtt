@@ -13,6 +13,7 @@ using Mqtt_Core.Messages;
 using Mqtt_Core.Session;
 using Mqtt_Core.Utility;
 using Mqtt_Core.Internal;
+
 // if .Net Micro Framework
 #if (MF_FRAMEWORK_VERSION_V4_2 || MF_FRAMEWORK_VERSION_V4_3)
 using Microsoft.SPOT;
